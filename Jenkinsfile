@@ -26,6 +26,7 @@ pipeline {
         stage('Plan') {
             steps {
                 sh 'terraform plan -no-color -out=create.tfplan'
+                sh 'terraform plan -out tfplan'
             }
         }
         stage('Apply / Destroy') {
