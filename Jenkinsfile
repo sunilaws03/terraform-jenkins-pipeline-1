@@ -28,6 +28,12 @@ pipeline {
                 sh 'terraform plan -no-color -out=create.tfplan'
             }
         }
+        stage ("terraform Action") {
+            steps {
+                echo "Terraform action is --> ${action}"
+                sh ('terraform ${action} --auto-approve') 
+           }
+        }
 
     }
     }
