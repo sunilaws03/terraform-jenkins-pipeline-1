@@ -29,6 +29,11 @@ pipeline {
                 sh 'terraform show -no-color tfplan > tfplan.tx'
             }
         }
+        stage('Apply') {
+            steps {
+                sh "pwd;cd terraform/ ; terraform apply -input=false tfplan"
+            }
+        }
 }
 }
     
