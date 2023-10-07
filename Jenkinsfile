@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', credentialsId: '011f30e4-babf-4fba-a44a-7b8562ca6f93', url: 'https://github.com/sunilaws03/terraform-jenkins-pipeline-1.git
+               git branch: 'main', credentialsId: 'c8070803-659f-493d-9c3f-ede7f2f00d12', url: 'https://github.com/sunilaws03/terraform-jenkins-pipeline-1.git'
             }
         }
         stage('Terraform init') {
