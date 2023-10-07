@@ -29,6 +29,6 @@ pipeline {
                 sh 'terraform show -no-color tfplan > tfplan.tx'
             }
         }
-    }
-    }
 
+    }
+    }
