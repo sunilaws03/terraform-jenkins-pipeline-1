@@ -36,10 +36,10 @@ pipeline {
             script{  
                 if (params.ACCION == "destroy"){
                          sh 'echo "llego" + params.ACCION'   
-                         sh 'terraform destroy -auto-approve'
+                         sh 'terraform destroy plan.out'
                 } else {
                          sh ' echo  "llego" + params.ACCION'                 
-                         sh 'terraform apply -refresh=true -auto-approve'  
+                         sh ' terraform apply plan.out'  
                 }  
 
             }
