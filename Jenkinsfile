@@ -30,24 +30,22 @@ pipeline {
                
             }
         }
-        stage('Apply / Destroy') {
+        stage('Terraform apply or destroy ----------------') {
             steps {
-                script {
-                    if (params.action == 'apply') {
-                        if (!params.autoApprove) {
-                            def plan = readFile 'tfplan.txt'
-                            input message: "Do you want to apply the plan?",
-                            parameters: [text(name: 'Plan', description: 'Please review the plan', defaultValue: plan)]
-                        }
+               sh 'echo "comienza"'
+            script{  
+                if (params.action == 'destroy'){
+                         //sh 'echo "llego" + params.ACCION'   
+                         //sh 'terraform destroy -auto-approve'
+                         sh 'terraform ${action} --auto-approve'
+                } else {
+                         //sh ' echo  "llego" + params.ACCION'                 
+                         sh 'terraform apply -refresh=true -auto-approve'
+                           
+                }  
 
-                        sh 'terraform ${action} -input=false tfplan'
-                    } else if (params.action == 'destroy') {
-                        sh 'terraform ${action} --auto-approve'
-                    } else {
-                        error "Invalid action selected. Please choose either 'apply' or 'destroy'."
-                    }
-                }
             }
+            } 
         }
     }
     }
