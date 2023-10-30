@@ -9,9 +9,7 @@ pipeline {
     environment {
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-        ASSUME_ROLE_ARN = 'arn:aws:iam::463912538787:role/crossaccountfor402'
-   
-   
+    
     }
 
     stages {
