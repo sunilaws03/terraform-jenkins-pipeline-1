@@ -1,8 +1,5 @@
-provider "aws"{
-  region = "us-east-1"
-  assume_role { 
-    role_arn = "arn:aws:iam::463912538787:role/crossaccountfor402"
-  }
+provider "aws" {
+    region = "us-east-1"  
 }
 
 resource "aws_instance" "foo" {
